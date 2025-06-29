@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>What's in the Locked Box?</title>
+ 
+  <style>
+    body {
+      font-family: Trebuchet MS, sans-serif;
+      background: #ffdae0;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: Pink;
+      border-radius: 10px;
+      box-shadow: 4px 4px 4px rgba(0,0,0,0.1);
+    }
+    .question h3 {
+      margin-top: 0;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: PaleVioletRed;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color:  #994e67;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔐 What's in the Locked Box?</h1>
+   
+  <h3> <b>
+  You find a locked box in the attic with 8 mysterious compartments inside. Each holds a surprise object – but only one is openable, and only if you figure out which object it is.
+  <br>
+  </b>
+  </h3>
+  <h4>
+  On top of the box you find a note, that says:
+  <br>
+  <br><i>
+  The compartment can have any of the objects given below.
+  <br>
+  Your task is to find out which one.</i>
+  <br>
+  <br>
+  Speaker
+  <br>
+  Headphones
+  <br>
+  Teddy Bear
+  <br>
+  Camera
+  <br>
+  Book
+  <br>
+  Remote Control
+  <br>
+  Paint Set
+
+ </h4>  
+ <h3> Here are your clues:</h3>
+ <h4>
+1.It works perfectly even in a power cut.<br>
+2.You might feel more inspired after using it — but it is not something you'd find in an art class.<br>
+3.While it does not teach or entertain, it is something many people keep close when they are feeling down. </h4>
+ 
+  
+  <p>Can you figure out what object is inside? Answer the following questions carefully.</p>
+
+  <div class="question" id="q1">
+    <h3>Q1: Is it electronic?</h3>
+    <button onclick="answerQ1('yes')">Yes</button>
+    <button onclick="answerQ1('no')">No</button>
+  </div>
+
+  <div class="question" id="q2" style="display:none">
+    <h3>Q2:Is it used for creative work?</h3>
+    <button onclick="answerQ2('yes')">Yes</button>
+    <button onclick="answerQ2('no')">No</button>
+  </div>
+
+  <div class="question" id="q3" style="display:none">
+    <h3>Q3:Is it soft?</h3>
+    <button onclick="answerQ3('yes')">Yes</button>
+    <button onclick="answerQ3('no')">No</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function answerQ1(choice) {
+      if (choice === 'yes') {
+        document.getElementById('result').innerText = "❌ Incorrect. The object isn't electronic.";
+        hideQuestions();
+      } else {
+        document.getElementById('q1').style.display = 'none';
+        document.getElementById('q2').style.display = 'block';
+      }
+    }
+
+    function answerQ2(choice) {
+      if (choice === 'yes') {
+        document.getElementById('result').innerText = "❌ Incorrect. It's not used for creative work.";
+        hideQuestions();
+      } else {
+        document.getElementById('q2').style.display = 'none';
+        document.getElementById('q3').style.display = 'block';
+      }
+    }
+
+    function answerQ3(choice) {
+      if (choice === 'yes') {
+        document.getElementById('result').innerText = "🎉 Correct! It's the 🧸 Teddy Bear — soft, quiet, and comforting.";
+      } else {
+        document.getElementById('result').innerText = "❌ Incorrect. The object is very soft.";
+      }
+      hideQuestions();
+    }
+
+    function hideQuestions() {
+      document.getElementById('q1').style.display = 'none';
+      document.getElementById('q2').style.display = 'none';
+      document.getElementById('q3').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
